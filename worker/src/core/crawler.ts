@@ -5,6 +5,7 @@ import cheerio from "cheerio";
 async function getHtml(url: string): Promise<string>{
     const res = await axios.get(url);
     if (res.status === 200) {
+        console.log(`url:${url} has been successfully crawled`)
         const html: string = res.data;
         return html;
     } else {

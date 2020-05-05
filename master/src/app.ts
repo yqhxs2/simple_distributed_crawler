@@ -8,7 +8,11 @@ async function main() {
     try {
         await InitManager.init();
     }catch(e) {
-        global.resourceManager.eventCenter.emit('log','ERROR','初始化过程出错',e )
+        global.resourceManager.eventCenter.emit('log','ERROR','init error',e )
+    }
+    const port = process.argv[2] ? parseInt(process.argv[2],10) : 3000
+    if (port < 3000 || port > 65535){
+        throw new Error('invalid port')
     }
     const app = new Koa();
     app.use(exceptionHandler)
@@ -16,6 +20,8 @@ async function main() {
     for (const router of InitManager.routers){
         app.use(router.routes()).use(router.allowedMethods())
     }
-    app.listen(3000);
+    app.listen(port, () => {
+        console.log(`server is listening at port ${port}`)
+    });
 }
 main()
