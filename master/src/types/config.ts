@@ -1,10 +1,11 @@
 import { RedisOptions } from "ioredis";
 
 interface Config {
-    nginxAddress: string
     rabbitMQAddress: string,
     mongoAddress: string,
-    redisConfig: RedisOptions
+    redisConfig: RedisOptions,
+    heartBeatInterval: number,
+    updateNodeInterval: number
 }
 
 export default Config

@@ -26,12 +26,14 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "address": "^1.1.2",
     "amqplib": "^0.5.5",
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "ioredis": "^4.16.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.9.7",
-    "mongoose-gridfs": "^1.2.34"
+    "mongoose-gridfs": "^1.2.34",
+    "uuid": "^8.1.0"
   }
 }
